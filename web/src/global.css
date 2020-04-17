@@ -1,0 +1,23 @@
+* {
+	padding:0;
+	margin:0;
+	box-sizing: border-box;
+	outline: 0;
+}
+
+html, body, #root {
+	height:100%;
+}
+
+body {
+	background:#f1f1f1;
+	-webkit-font-smoothing:antialiased;
+}
+
+body, input, button {
+	font-family:sans-serif;
+}
+
+button {
+	cursor:pointer;
+}
