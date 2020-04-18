@@ -1,23 +1,22 @@
-* {
-	padding:0;
-	margin:0;
-	box-sizing: border-box;
-	outline: 0;
-}
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap');
 
-html, body, #root {
-	height:100%;
+* {
+	margin:0;
+	padding:0;
+	outline:0;
+	box-sizing:border-box;
 }
 
 body {
-	background:#f1f1f1;
+	font:400 14px Roboto, sans-serif;
+	background: #f0f0f5;
 	-webkit-font-smoothing:antialiased;
 }
 
-body, input, button {
-	font-family:sans-serif;
+input, button, textarea {
+	font:400 18px Roboto, sans-serif;
 }
 
 button {
-	cursor:pointer;
+	cursor: pointer;
 }
