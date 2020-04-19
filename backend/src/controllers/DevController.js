@@ -14,22 +14,28 @@ module.exports = {
     async store(req, res) {
         const { github_username, techs } = req.body;
 
-        const response = await axios(`https://api.github.com/users/${github_username}`);
+        const githubExist = await Dev.findOne({ github_username });
 
-        const { name, bio, avatar_url } = response.data;
+        if(!githubExist) {
+            const response = await axios(`https://api.github.com/users/${github_username}`);
 
-        const techsArray = parseStringAsArray(techs);
+            const { name, bio, avatar_url } = response.data;
 
-        dev = await Dev.create({
-            name,
-            github_username,
-            bio,
-            avatar_url,
-            techs: techsArray
-        });
+            const techsArray = parseStringAsArray(techs);
 
-        return res.json(dev);
+            dev = await Dev.create({
+                name,
+                github_username,
+                bio,
+                avatar_url,
+                techs: techsArray
+            });
 
+            return res.json(dev);
+        }
+
+        return res.status(401).json({ error: 'exist github user in database, try other' });
+        
     },
 
     async show(req, res) {
