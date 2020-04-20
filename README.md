@@ -2,7 +2,7 @@
 
 ## How to use ?
 
-- ### Primary add all dependicies with command 
+- ### Primary add all dependencies with command 
 
 ```
   yarn install or npm install
