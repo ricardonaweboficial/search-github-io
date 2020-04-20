@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { FaChevronRight  } from 'react-icons/fa';
+import { FaChevronRight, FaTrash  } from 'react-icons/fa';
 
 import { Link } from 'react-router-dom';
 
@@ -15,7 +15,6 @@ import {
     ListDevs,
     DivInfo,
     Techs,
-    Github,
     DivGroupInfo,
     Footer
 } from './styles';
@@ -32,13 +31,12 @@ export default function About() {
                 const response = await api.get('/');
 
                 setDevs(response.data);
-                console.log(response.data);
             } catch (err) {
                 return alert('Error in load devs');
             }
         }
         loadDevs();
-    }, []);
+    }, [devs]);
 
     async function handleSubmit(e) {
         e.preventDefault();
@@ -49,9 +47,21 @@ export default function About() {
                 techs,
             });
 
-            setDevs(...devs, response.data);
+            setDevs([...devs, response.data]);
         } catch (err) {
             return alert('Error in create dev, try another.');
+        }
+    }
+
+    async function handleDeleteDev(id) {
+        try {
+            await api.delete(`/users/${id}`);
+
+            setDevs(devs.filter(dev => dev._id !== id));
+
+            alert('Dev excluido com sucesso.');
+        } catch (err) {
+            return alert('Erro ao excluir Dev, tente novamente.');
         }
     }
 
@@ -63,11 +73,11 @@ export default function About() {
                 <Section>
                     <FormDev onSubmit={handleSubmit}>
                         <h1>CADASTRAR DEV</h1>
-                        <input
-                            
+                        <input                            
                             value={github_username}
                             onChange={e => setGithub_username(e.target.value)} 
-                            placeholder="Usuário do Github"/>
+                            placeholder="Usuário do Github"
+                        />
                         <input
                             value={techs}
                             onChange={e => setTechs(e.target.value)} 
@@ -77,18 +87,22 @@ export default function About() {
                         
                     <ListDevs>
                         <h1>Desenvolvedores</h1>
-                        <li>
-                            <img src={github_img} alt="Github Avatar"/>
-                            <DivInfo>
-                                <h3>Ricardo Santos</h3>
-                                <p>Desenvolvedor Web | Criando projetos com ReactJS e NodeJS e sempre estudando para consumir ainda mais conhecimentos.</p>
-                                <p>Tecnologias: <br /><Techs>ReactJS, Node.js</Techs></p>
-                                <DivGroupInfo>
-                                    <p>Github: <Github>RicardoWorf</Github></p>
-                                    <Link to="/repos">REPOSITÓRIOS <FaChevronRight size={16} color="#ED464B"/></Link>
-                                </DivGroupInfo>
-                            </DivInfo>
-                        </li>
+                        {devs.map(dev => (
+                            <li key={dev._id}>
+                                <button onClick={() => handleDeleteDev(dev._id)}><FaTrash size={16} color="#ED464B"/></button>
+                                <img src={dev.avatar_url} alt={dev.name}/>
+                                <DivInfo>
+                                    <h3>{dev.name === null ? dev.name = dev.github_username : dev.name}</h3>
+                                    <p>{dev.bio}</p>
+                                    <p>Tecnologias: <br /><Techs>{dev.techs.join(', ')}</Techs></p>
+                                    <DivGroupInfo>
+                                        <p>Github: <a href={`https://www.github.com/${dev.github_username}`}>{dev.github_username}</a></p>
+                                        <Link to={`/repos/${dev.github_username}`}>REPOSITÓRIOS <FaChevronRight size={16} color="#ED464B"/></Link>
+                                    </DivGroupInfo> 
+                                </DivInfo>
+                            </li>
+                        ))}
+
                     </ListDevs>
                 </Section>
             <Footer>
