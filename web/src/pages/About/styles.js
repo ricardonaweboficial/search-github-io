@@ -9,6 +9,7 @@ export const DivContainer = styled.div`
 export const Header = styled.header`
     width:100%;
     max-width:100%;
+
     text-align: center;
     font-size:20px;
     padding:10px;
@@ -20,24 +21,23 @@ export const Header = styled.header`
 
 export const Section = styled.section`
     width:100%;
+    height:100%;
     padding:30px 50px; 
     
     display:flex;
     justify-content:space-around;
-
+    align-items:flex-start;
     position:relative;
 `;
 
 export const FormDev = styled.form`
     width:100%;
     max-width:350px;
-    height:100%;
     padding:20px;
     border:2px solid #000;
 
     display:flex;
     flex-direction:column;
-    position:sticky;    
 
     h1 {
         margin-bottom:20px;
@@ -113,6 +113,7 @@ export const DivInfo = styled.div`
     p {
         width:100%;
         display:flex;
+        align-items:center;
         font-size:16px;
         font-weight:bold;
         color:#303030;

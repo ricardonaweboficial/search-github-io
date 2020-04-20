@@ -48,6 +48,9 @@ export default function About() {
             });
 
             setDevs([...devs, response.data]);
+            
+            setGithub_username('');
+            setTechs('');
         } catch (err) {
             return alert('Error in create dev, try another.');
         }
