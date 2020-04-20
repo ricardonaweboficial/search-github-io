@@ -9,7 +9,7 @@ export default function Routes() {
         <BrowserRouter>
             <Switch>
                 <Route path="/" exact component={About} />
-                <Route path="/repos" component={Repos} />
+                <Route path="/repos/:github_username" component={Repos} />
             </Switch>
         </BrowserRouter>
     );
