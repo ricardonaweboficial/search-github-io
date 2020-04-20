@@ -60,6 +60,7 @@ export const ListRepos = styled.ul`
     display:grid;
     grid-template-columns:1fr 1fr 1fr;
     gap:10px;
+    align-items:center;
 `;
 
 export const ItemRepo = styled.li`
@@ -67,11 +68,22 @@ export const ItemRepo = styled.li`
     border:2px solid #3d3d3d;
     border-radius:4px;
     padding:5px;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
     
     h1 {
-        color:#ED464B;
         margin-bottom:10px;
-        
+
+        a {
+            margin-left:5px;
+            text-decoration:none;
+            color:#ED464B;    
+
+            &:hover {
+                color:#C2464B;
+            }
+        }
     }
 
     p {
@@ -105,8 +117,6 @@ export const DivGroupInfo = styled.div`
 
 
 export const Footer = styled.footer`
-    position:absolute;
-    bottom:0;
     width:100%;
     padding:15px;
     text-align: center;
