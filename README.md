@@ -1,4 +1,4 @@
-# Integration with API of Github with socket.io, using ReactJS, Styled-Components, Socket.io and MongoDB ).
+# Integration with API of Github and socket.io, using ReactJS, Styled-Components, Socket.io and MongoDB ).
 
 ## How to use ?
 
