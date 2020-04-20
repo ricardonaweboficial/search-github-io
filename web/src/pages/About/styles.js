@@ -10,10 +10,12 @@ export const Header = styled.header`
     width:100%;
     max-width:100%;
     text-align: center;
-    font-size:15px;
+    font-size:20px;
     padding:10px;
-    background:#ED464B;
-    color:#f1f1f1;
+    background:none;
+    color:#6f6f6f;
+    text-decoration:underline;
+    position:relative;
 `;
 
 export const Section = styled.section`
@@ -22,7 +24,7 @@ export const Section = styled.section`
     
     display:flex;
     justify-content:space-around;
-    align-items:center;
+
     position:relative;
 `;
 
@@ -35,7 +37,7 @@ export const FormDev = styled.form`
 
     display:flex;
     flex-direction:column;
-    align-items:center;
+    position:sticky;    
 
     h1 {
         margin-bottom:20px;
@@ -68,6 +70,7 @@ export const ListDevs = styled.ul`
         margin-bottom:20px;
         font-size:30px;
         text-align:center;
+        color:#7f7f7f;
     }
     li {
         width:100%;
@@ -77,6 +80,22 @@ export const ListDevs = styled.ul`
         display:flex;
         text-align: justify;
 	    text-justify:distribute;
+        position:relative;
+        margin-bottom:20px;
+
+        img {
+            width:30%;
+        }
+
+        button {
+            position:absolute;
+            top:10px;
+            right:20px;
+            background:none;
+            border:none;
+
+        }
+        
     }
 `;
 
@@ -93,21 +112,26 @@ export const DivInfo = styled.div`
 
     p {
         width:100%;
-
+        display:flex;
         font-size:16px;
         font-weight:bold;
         color:#303030;
         margin:10px 0;
+
+        a {
+            margin-left:5px;
+            color:#5350EA;
+
+            &:hover {
+                filter:brightness(0.8);
+            }
+        }
     }
 `;
 
 export const Techs = styled.span`
     font-size:20px;
     color:#ED464B;
-`;
-
-export const Github = styled.span`
-    color:#5350EA;
 `;
 
 export const DivGroupInfo = styled.div`
@@ -127,8 +151,6 @@ export const DivGroupInfo = styled.div`
 `;
 
 export const Footer = styled.footer`
-    position:absolute;
-    bottom:0;
     width:100%;
     padding:15px;
     text-align: center;
