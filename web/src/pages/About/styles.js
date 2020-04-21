@@ -41,7 +41,11 @@ export const FormDev = styled.form`
     flex-direction:column;
 
     h1 {
+<<<<<<< HEAD
         text-align:center;
+=======
+	text-align:center;
+>>>>>>> 0dc9f5ee1ea4ee2c62a2c1f57c0ef4929204adf2
         margin-bottom:20px;
     }
 
