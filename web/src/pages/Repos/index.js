@@ -23,7 +23,6 @@ export default function Repos() {
 
     const [ repos, setRepos ] = useState([]);
 
-    const [ colorCircle, setColorCircle ] = useState('');
 
     useEffect(() => {
         async function loadRepos() {
@@ -40,7 +39,7 @@ export default function Repos() {
         }
 
         loadRepos();
-    }, []);
+    }, [github_username]);
 
     return (
         <DivContainer>
@@ -55,14 +54,12 @@ export default function Repos() {
                             <h1><FaFileAlt size={16} color="#6f6f6f"/><a href={`https://www.github.com/${github_username}/${repo.name}`}>{repo.name}</a></h1>
                             <p>{repo.description === null ? repo.description = 'Sem descrição' : repo.description}</p>
                             <DivGroupInfo>
-                                {repo.language ? (
+                                {repo.language &&
                                     <Fragment>
                                         <h4><FaCircle color={LanguageColor(repo.language)} size={16}/>{repo.language === null ? repo.language = 'Sem Linguagem' : repo.language}</h4>
                                         <h4><FaStar size={16} color="#ED464B"/> {repo.stargazers_count}</h4>   
                                     </Fragment>
-                                ) : (
-                                    <h1></h1>
-                                )}
+                                }
                                 
                             </DivGroupInfo>
                         </ItemRepo>                  
