@@ -1,5 +1,3 @@
-import React from 'react';
-
 export default function LanguageColor(color) {
 	if(color === 'JavaScript') {
 		return '#F1E05A';
