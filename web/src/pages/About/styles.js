@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+    import styled from 'styled-components';
 
 export const DivContainer = styled.div`
     width:100%;
@@ -35,11 +35,13 @@ export const FormDev = styled.form`
     max-width:350px;
     padding:20px;
     border:2px solid #000;
-
+    position:sticky;
+    top:20px;
     display:flex;
     flex-direction:column;
 
     h1 {
+        text-align:center;
         margin-bottom:20px;
     }
 
@@ -78,25 +80,33 @@ export const ListDevs = styled.ul`
         border:2px solid #000;
         padding:10px;
         display:flex;
-        text-align: justify;
-	    text-justify:distribute;
         position:relative;
         margin-bottom:20px;
+
 
         img {
             width:30%;
         }
-
-        button {
-            position:absolute;
-            top:10px;
-            right:20px;
-            background:none;
-            border:none;
-
-        }
         
     }
+`;
+
+export const ButtonDelete = styled.button`
+    position:absolute;
+    top:10px;
+    right:20px;
+    background:none;
+    border:0;
+    transition:0.2s;
+
+    &:hover {
+        transform:scale(1.3);
+    }
+`;
+
+export const DistributeP = styled.p`
+    text-align: justify;
+    text-justify:distribute;
 `;
 
 export const DivInfo = styled.div`
@@ -112,21 +122,10 @@ export const DivInfo = styled.div`
 
     p {
         width:100%;
-        display:flex;
-        align-items:center;
         font-size:16px;
         font-weight:bold;
         color:#303030;
         margin:10px 0;
-
-        a {
-            margin-left:5px;
-            color:#5350EA;
-
-            &:hover {
-                filter:brightness(0.8);
-            }
-        }
     }
 `;
 
@@ -137,19 +136,45 @@ export const Techs = styled.span`
 
 export const DivGroupInfo = styled.div`
     display:flex;
-    justify-content:space-between;
     align-items:center;
+    justify-content:space-between;
+
+    span {
+        color:#2C7AD2;
+    } 
 
     a {
-        display:flex;
-        align-items:center;
         font-size:16px;
-        color:#ED464B;
+        color:#3F6DBF;
         cursor:pointer;
         font-weight:bold;
         text-decoration:none;
+        transition:margin-left 0.5s;
+
+        &:hover {
+            margin-left:5px;
+        }
+    }
+
+    button {
+        position:absolute;
+        bottom:20px;
+        right:20px;
+        color:#ED464B;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        font-weight: bold;
+        border:0;
+        background:none;
+        transition:transform 0.5s;
+
+        &:hover {
+            transform:translateX(5%);
+        }
     }
 `;
+
 
 export const Footer = styled.footer`
     width:100%;
@@ -158,6 +183,7 @@ export const Footer = styled.footer`
     font-size:8px;
     background:#ED464B;
     color:#303030;
+    position:relative;
 
     span {
         color:#f1f1f1;
