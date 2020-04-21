@@ -21,9 +21,8 @@
 ```
 
 ## Features
--  Create Dev with datas of **github user**.
--  Save Dev in database using **( MongoDB )** 
-- Modification Dev **( Name, Techs )**.
+- Create Dev with datas of **github user**.
+- Save Dev in database using **( MongoDB )** 
 - Delete Dev.
 - Create dev using **( socket.io )**.
 - List repos of dev using **( react-router-dom )**.
