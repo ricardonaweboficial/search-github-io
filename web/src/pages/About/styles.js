@@ -40,6 +40,7 @@ export const FormDev = styled.form`
     flex-direction:column;
 
     h1 {
+	text-align:center;
         margin-bottom:20px;
     }
 
