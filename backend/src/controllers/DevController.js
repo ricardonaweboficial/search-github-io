@@ -6,8 +6,6 @@ const parseStringAsArray = require('../utils/parseStringAsArray');
 module.exports = {
     async index(req, res) {
         const response = await Dev.find();
-        
-        console.log(response);
         return res.json(response);
     },
 
