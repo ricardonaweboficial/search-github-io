@@ -33,6 +33,7 @@ export default function About() {
                 const response = await api.get('/');
 
                 setDevs(response.data);
+
             } catch (err) {
                 return alert('Error in load devs');
             }
@@ -50,9 +51,10 @@ export default function About() {
             });
 
             setDevs([...devs, response.data]);
-            
             setGithub_username('');
             setTechs('');
+            
+
         } catch (err) {
             return alert('Error in create dev, try another.');
         }

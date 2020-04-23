@@ -41,11 +41,7 @@ export const FormDev = styled.form`
     flex-direction:column;
 
     h1 {
-<<<<<<< HEAD
         text-align:center;
-=======
-	text-align:center;
->>>>>>> 0dc9f5ee1ea4ee2c62a2c1f57c0ef4929204adf2
         margin-bottom:20px;
     }
 
@@ -184,8 +180,8 @@ export const Footer = styled.footer`
     width:100%;
     padding:15px;
     text-align: center;
-    font-size:8px;
     background:#ED464B;
+    font-size:8px;
     color:#303030;
     position:relative;
 
